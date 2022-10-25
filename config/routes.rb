@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  resources :recipients
-  resources :donations
-  resources :donors
+ 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'donors', to: 'donors#index'
+  resources :donors, only: [:show, :index, :create]
+  # get 'donors', to: 'donors#index'
+  # get 'donors/:id', to: 'donors#show'
 
-  get 'donations', to: 'donations#index'
+  resources :donations, only: [:show, :index, :create]
+  # get 'donations', to: 'donations#index'
+  # get 'donations/:id', to: 'donations#show'
 
-  get 'recipients', to: 'recipients#index'
+  resources :recipients, only: [:show, :index, :create]
+  # get 'recipients', to: 'recipients#index'
+  # get 'recipients/:id', to: 'recipients#show'
 end
